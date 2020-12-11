@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start:dev": "nodemon src/index.ts",
-    "start": "node build/index.js",
-    "build": "tsc src/index.ts --outDir ./build"
+    "build": "tsc src/index.ts --outDir ./build",
+    "prod": "node build/index.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
