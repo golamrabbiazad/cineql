@@ -1,18 +1,16 @@
 import { GraphQLServer } from "graphql-yoga";
+import resolvers from "../graphql/resolvers";
 
-const typeDefs = `
-    type Query {
-        hello(name: String): String!
-    }
-`;
-
-const resolvers = {
-  Query: {
-    hello: (_: any, { name }: any) => `Hello ${name || "World"}`,
-  },
+const option = {
+  port: 9300,
+  endpoint: "/graphql",
+  playground: "/play",
 };
 
-const server = new GraphQLServer({ typeDefs, resolvers });
-server.start(() => {
-  console.log("server on running on port:4000");
+const server = new GraphQLServer({
+  typeDefs: "graphql/schema.graphql",
+  resolvers,
+});
+server.start(option, ({ port }) => {
+  console.log(`server on running on port:${port}`);
 });

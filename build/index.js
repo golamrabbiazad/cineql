@@ -12,5 +12,5 @@ var resolvers = {
 };
 var server = new graphql_yoga_1.GraphQLServer({ typeDefs: typeDefs, resolvers: resolvers });
 server.start(function () {
-    console.log("server on running on port 4000");
+    console.log("server on running on port:4000");
 });
